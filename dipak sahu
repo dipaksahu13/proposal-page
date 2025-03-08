@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Marry Me?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #yes {
+            background-color: green;
+            color: white;
+            font-size: 1.5em;
+        }
+        #no {
+            background-color: red;
+            color: white;
+            font-size: 1.5em;
+        }
+        .hidden {
+            display: none;
+        }
+        .flowers {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will You Marry Me? 💍</h1>
+    <div class="buttons">
+        <button id="yes" onclick="showFlowers()">Yes</button>
+        <button id="no" onclick="resizeButtons()">No</button>
+    </div>
+    <div id="flower-animation" class="hidden">
+        <img src="https://media.giphy.com/media/l0HUqsz2jdQYElRm0/giphy.gif" class="flowers">
+    </div>
+
+    <script>
+        let noSize = 1.5;
+        let yesSize = 1.5;
+
+        function resizeButtons() {
+            noSize -= 0.2;
+            yesSize += 0.3;
+            
+            if (noSize <= 0.5) {
+                noSize = 0.5;
+            }
+            document.getElementById("no").style.fontSize = noSize + "em";
+            document.getElementById("yes").style.fontSize = yesSize + "em";
+        }
+
+        function showFlowers() {
+            document.getElementById("flower-animation").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
